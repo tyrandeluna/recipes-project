@@ -1,12 +1,28 @@
 import { Recipe } from './recipe.model'
 import { EventEmitter } from '@angular/core'
+import { Ingredient } from '../shared/ingredient.model'
 
 export class RecipeService {
     recipeSelected = new EventEmitter<Recipe>()
     
     private recipes: Recipe[] = [
-        new Recipe('A Test', 'This is simply a test', 'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg'),
-        new Recipe('Another Test Recipe', 'This is simply a test', 'https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg')
+        new Recipe(
+            'Egg Noodles With Prawns', 
+            'A quick midweek meal!', 
+            'https://realfood.tesco.com/media/images/1400x919-EggNoodlesPrawn-18d15cbf-c98a-4ede-8d48-19b59ec6af33-0-1400x919.jpg',
+            [
+                new Ingredient('Red Onion', 1),
+                new Ingredient('Egg', 5)
+            ]),
+        new Recipe(
+            'Sunshine Pizza', 
+            'Transport yourself to the Mediterranean!', 
+            'https://realfood.tesco.com/media/images/RFO-1400x919-Sunshine-pizza-fc90bdc6-bc4f-46cf-b63a-1ff7bc928bc9-0-1400x919.jpg',
+            [
+                new Ingredient('Egg',2),
+                new Ingredient('Yellow Pepper', 1),
+                new Ingredient('Orange Pepper', 1)
+            ])
     ]
 
     getRecipes() {
